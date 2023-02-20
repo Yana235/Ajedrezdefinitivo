@@ -2,8 +2,8 @@ package model.pieces;
 
 import tad.ListPieces;
 
-import java.model.Cell;
-import java.model.Piece;
+import model.Cell;
+import model.Piece;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
 

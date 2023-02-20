@@ -2,7 +2,7 @@
 package tad;
 
 
-import java.model.Piece;
+import model.Piece;
 
 public class ListPieces {
 

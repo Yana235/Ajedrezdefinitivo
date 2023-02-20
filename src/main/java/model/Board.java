@@ -2,7 +2,7 @@ package model;
 
 import model.pieces.*;
 
-import java.tad.ListCoor;
+import tad.ListCoor;
 
 public class Board {
 

@@ -2,7 +2,7 @@ package model;
 
 import com.diogonunes.jcolor.Attribute;
 
-import java.tad.ListCoor;
+import tad.ListCoor;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
 

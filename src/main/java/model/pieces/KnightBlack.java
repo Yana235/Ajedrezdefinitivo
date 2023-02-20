@@ -1,6 +1,6 @@
 package model.pieces;
 
-import java.model.Cell;
+import model.Cell;
 
 public class KnightBlack extends Knight {
     public KnightBlack(Cell cell){

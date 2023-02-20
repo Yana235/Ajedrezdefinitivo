@@ -1,6 +1,6 @@
 package model.pieces;
 
-import java.model.Cell;
+import model.Cell;
 
 public class RockBlack extends Rock {
     public RockBlack(Cell cell){

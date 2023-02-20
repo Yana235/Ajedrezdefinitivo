@@ -1,6 +1,6 @@
 package tad;
 
-import java.model.Coordinate;
+import model.Coordinate;
 
 public class ListCoor {
     private Node head;

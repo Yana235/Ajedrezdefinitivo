@@ -1,6 +1,6 @@
 package model.pieces;
 
-import java.model.Piece;
+import model.Piece;
 
 public interface InterfacePieceDelete {
     void addPiece(Piece piece);

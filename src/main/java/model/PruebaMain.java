@@ -1,5 +1,5 @@
 package model;
-import java.tad.ListCoor;
+import tad.ListCoor;
 
 public class PruebaMain {
 
