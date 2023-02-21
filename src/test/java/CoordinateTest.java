@@ -1,5 +1,4 @@
-package model;
-
+import model.Coordinate;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

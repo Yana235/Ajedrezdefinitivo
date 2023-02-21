@@ -22,10 +22,7 @@ public class Board {
 
     public void startPieces(){
         Piece p;
-        /*
-              p = new KnightBlack(getCell(new Coordinate('D',8)));
-        p.putInYourPlace();
-         */
+
         p = new KnightWhite(getCell(new Coordinate('B',8)));
         p.putInYourPlace();
 
@@ -41,6 +38,7 @@ public class Board {
         p= new QueenWhite(getCell(new Coordinate('E',8)));
         p.putInYourPlace();
 
+        /*
         p= new PawnWhite(getCell(new Coordinate('A',7)));
         p.putInYourPlace();
         p= new PawnWhite(getCell(new Coordinate('B',7)));
@@ -58,20 +56,16 @@ public class Board {
         p= new PawnWhite(getCell(new Coordinate('H',7)));
         p.putInYourPlace();
 
+
+         */
         p= new BishopWhite(getCell(new Coordinate('C',8)));
         p.putInYourPlace();
 
         p= new BishopWhite(getCell(new Coordinate('F',8)));
         p.putInYourPlace();
 
-        p= new KingWhite(getCell(new Coordinate('D',7)));
+        p= new KingWhite(getCell(new Coordinate('D',8)));
         p.putInYourPlace();
-
-
-
-
-
-
 
         p = new KnightBlack(getCell(new Coordinate('B',1)));
         p.putInYourPlace();
@@ -87,7 +81,7 @@ public class Board {
 
         p= new QueenBlack(getCell(new Coordinate('E',1)));
         p.putInYourPlace();
-
+/*
         p= new PawnBlack(getCell(new Coordinate('A',2)));
         p.putInYourPlace();
         p= new PawnBlack(getCell(new Coordinate('B',2)));
@@ -105,6 +99,7 @@ public class Board {
         p= new PawnBlack(getCell(new Coordinate('H',2)));
         p.putInYourPlace();
 
+ */
         p= new BishopBlack(getCell(new Coordinate('C',1)));
         p.putInYourPlace();
 
@@ -114,8 +109,12 @@ public class Board {
         p= new KingBlack(getCell(new Coordinate('D',1)));
         p.putInYourPlace();
 
-
-
+        for (int i = 0; i < 8; i++) {
+            p = new PawnBlack(getCell(new Coordinate((char)('A'+i),2)));
+            p.putInYourPlace();
+            p = new PawnWhite(getCell(new Coordinate((char)('A'+i),7)));
+            p.putInYourPlace();
+        }
 
 /*
         for (int i = 0; i >8; i++) {
@@ -124,7 +123,6 @@ public class Board {
                 p.putInYourPlace();
             }
 
-            //No funciona bien no hace peones
 
         }
 
@@ -173,13 +171,14 @@ public class Board {
         output += "   A  B  C  D  E  F  G  H";
         return output;
     }
+    /*
     public void testPlacePawn(){
         Piece p;
         p = new PawnWhite(getCell(new Coordinate('B',6)));
         p.putInYourPlace();
-        p = new PawnWhite(getCell(new Coordinate('C',7)));
+        p = new PawnWhite(getCell(new Coordinate('B',7)));
         p.putInYourPlace();
-        p = new PawnBlack(getCell(new Coordinate('D',6)));
+        p = new PawnBlack(getCell(new Coordinate('B',2)));
         p.putInYourPlace();
     }
 
@@ -237,4 +236,6 @@ public class Board {
         p = new KnightBlack(getCell(new Coordinate('B',7)));
         p.putInYourPlace();
     }
-}
+
+     */
+         }

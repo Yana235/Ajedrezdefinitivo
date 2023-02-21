@@ -2,7 +2,8 @@ package model;
 
 public class Coordinate {
     private char column;
-    private int row;
+
+   private int row;
 
     public Coordinate(char column, int row) {
         this.column = Character.toUpperCase(column);
