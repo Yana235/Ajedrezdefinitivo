@@ -16,23 +16,26 @@ public class PruebaMain {
 
         Board b1= new Board();
 
+        System.out.println("Choose piece:");
+        Piece type;
+        type=sc.next();
+        Piece p= new Piece(Piece.Type.BLACK_PAWN,new Cell(this,new Coordinate('A',2)));
+
 
             System.out.println("Put coordinate :");
             String coordinate="";
         coordinate=sc.nextLine();
-        Coordinate c = new Coordinate(coordinate.charAt(0),coordinate.charAt(1));
 
         while(coordinate.length()==2){
                if(coordinate.charAt(0)>'A' && coordinate.charAt(0)<'H'){
                    if(coordinate.charAt(1)>1 && coordinate.charAt(1)<8){
+                       Coordinate c = new Coordinate(coordinate.charAt(0),coordinate.charAt(1));
 
                    }
-
             }
-                System.out.println(coordinate);
-
             }
 
+        System.out.println(coordinate);
 
 
 
