@@ -10,24 +10,27 @@ public class PruebaMain {
         Scanner sc=new Scanner(System.in);
         Board b = new Board();
 
-       // System.out.println(b);
         b.startPieces();
         System.out.println(b);
 
 
+        Board b1= new Board();
+
+
             System.out.println("Put coordinate :");
             String coordinate="";
-            while(coordinate.length()==2){
+        coordinate=sc.nextLine();
+        Coordinate c = new Coordinate(coordinate.charAt(0),coordinate.charAt(1));
+
+        while(coordinate.length()==2){
                if(coordinate.charAt(0)>'A' && coordinate.charAt(0)<'H'){
                    if(coordinate.charAt(1)>1 && coordinate.charAt(1)<8){
-       Coordinate c = new Coordinate(coordinate.charAt(0),coordinate.charAt(1));
 
                    }
 
             }
-
-
                 System.out.println(coordinate);
+
             }
 
 

@@ -13,6 +13,8 @@ public class Coordinate {
     public char getColumn() {
         return column;
     }
+
+
     public int getRow() {
         return row;
     }

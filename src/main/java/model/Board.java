@@ -171,7 +171,7 @@ public class Board {
         output += "   A  B  C  D  E  F  G  H";
         return output;
     }
-    /*
+
     public void testPlacePawn(){
         Piece p;
         p = new PawnWhite(getCell(new Coordinate('B',6)));
@@ -181,6 +181,7 @@ public class Board {
         p = new PawnBlack(getCell(new Coordinate('B',2)));
         p.putInYourPlace();
     }
+    /*
 
     public void testPlaceBishop(){
         Piece p;
