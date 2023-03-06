@@ -1,4 +1,5 @@
 package model;
+import model.pieces.KingWhite;
 import model.pieces.PawnWhite;
 import tad.ListCoor;
 
@@ -14,29 +15,40 @@ public class PruebaMain {
         System.out.println(b);
 
 
-        Board b1= new Board();
-
-        System.out.println("Choose piece:");
+      /*  System.out.println("Choose piece:");
         Piece type;
-        type=sc.next();
         Piece p= new Piece(Piece.Type.BLACK_PAWN,new Cell(this,new Coordinate('A',2)));
 
 
+       */
+        Board b2= new Board();
+        b2.startPieces();
+        boolean answerIncorrect=true;
+        do{
+
             System.out.println("Put coordinate :");
             String coordinate="";
-        coordinate=sc.nextLine();
+            coordinate=sc.nextLine();
+            //falta if de 2--> coordinate.length()!=2 && answerIncorrect!=false
+            if (coordinate.length()==2) {
+               if(coordinate.charAt(0)>='A' && coordinate.charAt(0)<='H'){
+                   if(coordinate.charAt(1)>=49 && coordinate.charAt(1)<=56){
+                  //    Piece p = new Piece(Piece.Type.BLACK_PAWN,new Cell(b2 ,new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48)));
+                    //  p.moveTo(new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48));
 
-        while(coordinate.length()==2){
-               if(coordinate.charAt(0)>'A' && coordinate.charAt(0)<'H'){
-                   if(coordinate.charAt(1)>1 && coordinate.charAt(1)<8){
-                       Coordinate c = new Coordinate(coordinate.charAt(0),coordinate.charAt(1));
+                    //   System.out.println(p);
+                       Piece p= new PawnWhite(new Cell(b2,new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48)));
+                       Piece p2= new KingWhite(new Cell(b2,new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48)));
+
+                       answerIncorrect = false;
 
                    }
-            }
+               }
             }
 
-        System.out.println(coordinate);
+        }while(answerIncorrect);
 
+        System.out.println(b2);
 
 
      /*   Piece p;
@@ -62,6 +74,7 @@ public class PruebaMain {
        System.out.println(b);
 
       */
+
 
 
 

@@ -9,7 +9,7 @@ import static com.diogonunes.jcolor.Ansi.colorize;
 public abstract class Piece {
     protected ListCoor coordinates;
     private Type type;
-    private Cell cell;
+    protected Cell cell;
 
     public Piece(Type type, Cell cell) {
         this.cell = cell;

@@ -4,43 +4,60 @@ import model.*;
 import tad.ListCoor;
 
 public abstract class Rock extends Piece {
-    private ListCoor coordinates;
+
     public Rock(Type type, Cell cell){
         super(type,cell);
     }
     @Override
-    public ListCoor getNextMovements(){
-        coordinates=new ListCoor();
-        Coordinate position=getCell().getCoordinate();
+    public ListCoor getNextMovements() {
+        return Rock.getNextMovementsAsRook(this);
+    }
+
+    public static ListCoor getNextMovementsAsRook(Piece p){
+        ListCoor coordinates = new ListCoor();
+        Cell cell = p.getCell();
+        Board board = cell.getBoard();
+        Piece.Color color = p.getColor();
+
+        Coordinate original = cell.getCoordinate();
         Coordinate c;
 
-        //Up
-        c=position.up();
-        check(c);
-
-        //Down
-        c=position.down();
-        check(c);
-
-        //Right
-        c=position.right();
-        check(c);
-
-        //Left
-        c=position.left();
-        check(c);
-        return coordinates;
-    }
-    public void check(Coordinate c){
-        Board board=getCell().getBoard();
-
-        if(board.getCell(c) != null){
-            if(board.getCell(c).isEmpty() ||
-            board.getCell(c).getPiece().getColor() != getColor())
+        //UP
+        c=original.up();
+        while(board.getCell(c)!= null && board.getCell(c).isEmpty()) {
             coordinates.add(c);
-                    {
-
-            }
+            c = c.up();
         }
+        if(board.getCell(c)!=null && board.getCell(c).getPiece().getColor()!=color)
+            coordinates.add(c);
+
+        //DOWN
+        c=original.down();
+        while(board.getCell(c)!= null && board.getCell(c).isEmpty()) {
+            coordinates.add(c);
+            c = c.down();
+        }
+        if(board.getCell(c)!=null && board.getCell(c).getPiece().getColor()!=color)
+            coordinates.add(c);
+
+        //LEFT
+        c=original.left();
+        while(board.getCell(c)!= null && board.getCell(c).isEmpty()) {
+            coordinates.add(c);
+            c = c.left();
+        }
+        if(board.getCell(c)!=null && board.getCell(c).getPiece().getColor()!=color)
+            coordinates.add(c);
+
+        //RIGHT
+        c=original.right();
+        while(board.getCell(c)!= null && board.getCell(c).isEmpty()) {
+            coordinates.add(c);
+            c = c.right();
+        }
+        if(board.getCell(c)!=null && board.getCell(c).getPiece().getColor()!=color)
+            coordinates.add(c);
+
+        return coordinates;
     }
 }
