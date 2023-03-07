@@ -2,10 +2,9 @@ package model;
 import model.pieces.KingWhite;
 import model.pieces.PawnWhite;
 import tad.ListCoor;
-
 import java.util.Scanner;
 
-public class PruebaMain {
+public class PruebaMain  {
 
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
@@ -23,28 +22,41 @@ public class PruebaMain {
        */
         Board b2= new Board();
         b2.startPieces();
+
+
         boolean answerIncorrect=true;
         do{
 
-            System.out.println("Put coordinate :");
+
+            System.out.println("Choose Piece :");
             String coordinate="";
             coordinate=sc.nextLine();
-            //falta if de 2--> coordinate.length()!=2 && answerIncorrect!=false
-            if (coordinate.length()==2) {
-               if(coordinate.charAt(0)>='A' && coordinate.charAt(0)<='H'){
-                   if(coordinate.charAt(1)>=49 && coordinate.charAt(1)<=56){
-                  //    Piece p = new Piece(Piece.Type.BLACK_PAWN,new Cell(b2 ,new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48)));
-                    //  p.moveTo(new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48));
 
-                    //   System.out.println(p);
-                       Piece p= new PawnWhite(new Cell(b2,new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48)));
-                       Piece p2= new KingWhite(new Cell(b2,new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48)));
+            System.out.println("Put Coordinate :");
+            String coordinate2="";
+            coordinate2=sc.nextLine();
 
-                       answerIncorrect = false;
+                if (coordinate.length()==2 ) {
+                    if(coordinate.charAt(0)>='A' && coordinate.charAt(0)<='H'){
+                        if(coordinate.charAt(1)>=49 && coordinate.charAt(1)<=56){
+                            //    Piece p = new Piece(Piece.Type.BLACK_PAWN,new Cell(b2 ,new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48)));
+                            //  p.moveTo(new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48));
+                            Piece p;
+                            p=b2.getCell(new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48)).getPiece();
+                            p.check(new Coordinate(coordinate2.charAt(0),coordinate2.charAt(1)-48),);
 
-                   }
-               }
-            }
+
+                            //   p.moveTo(new Coordinate('A',3));
+                            //   System.out.println(p);
+                            //    p= new KingWhite(new Cell(b2,new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48)));
+
+                            answerIncorrect = false;
+
+                        }
+                    }
+                }
+
+
 
         }while(answerIncorrect);
 
