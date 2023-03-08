@@ -72,6 +72,7 @@ public class ListCoor {
         return result;
     }
 
+
     public Coordinate get(int index){
         Coordinate result = null;
         if (isEmpty() || index <0 || index>=size)

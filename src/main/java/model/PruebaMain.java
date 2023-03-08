@@ -41,9 +41,14 @@ public class PruebaMain  {
                         if(coordinate.charAt(1)>=49 && coordinate.charAt(1)<=56){
                             //    Piece p = new Piece(Piece.Type.BLACK_PAWN,new Cell(b2 ,new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48)));
                             //  p.moveTo(new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48));
+
+
                             Piece p;
                             p=b2.getCell(new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48)).getPiece();
-                            p.check(new Coordinate(coordinate2.charAt(0),coordinate2.charAt(1)-48),);
+                       //    p.moveTo(new Coordinate(coordinate2.charAt(0),coordinate2.charAt(1)-48));
+                       //     ListCoor l;
+                            p.moveTo(new Coordinate(coordinate2.charAt(0),coordinate2.charAt(1)-48));
+                            p.getNextMovements();
 
 
                             //   p.moveTo(new Coordinate('A',3));
@@ -86,9 +91,6 @@ public class PruebaMain  {
        System.out.println(b);
 
       */
-
-
-
 
     }
 
