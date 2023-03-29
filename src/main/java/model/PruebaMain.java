@@ -1,8 +1,8 @@
 package model;
-import model.pieces.KingWhite;
-import model.pieces.PawnWhite;
 import tad.ListCoor;
+
 import java.util.Scanner;
+import java.util.Set;
 
 public class PruebaMain  {
 
@@ -32,9 +32,7 @@ public class PruebaMain  {
             String coordinate="";
             coordinate=sc.nextLine();
 
-            System.out.println("Put Coordinate :");
-            String coordinate2="";
-            coordinate2=sc.nextLine();
+
 
                 if (coordinate.length()==2 ) {
                     if(coordinate.charAt(0)>='A' && coordinate.charAt(0)<='H'){
@@ -42,13 +40,30 @@ public class PruebaMain  {
                             //    Piece p = new Piece(Piece.Type.BLACK_PAWN,new Cell(b2 ,new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48)));
                             //  p.moveTo(new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48));
 
-
+                            Board b3= new Board();
                             Piece p;
-                            p=b2.getCell(new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48)).getPiece();
-                       //    p.moveTo(new Coordinate(coordinate2.charAt(0),coordinate2.charAt(1)-48));
-                       //     ListCoor l;
-                            p.moveTo(new Coordinate(coordinate2.charAt(0),coordinate2.charAt(1)-48));
-                            p.getNextMovements();
+                            p=b3.getCell(new Coordinate(coordinate.charAt(0),coordinate.charAt(1)-48)).getPiece();
+
+
+                            ListCoor l = p.getNextMovements();
+
+                            b3.highlight((Set<Coordinate>) l);
+                            System.out.println(b3);
+
+
+                            System.out.println("Put Coordinate :");
+                            String coordinate2="";
+                            coordinate2=sc.nextLine();
+                            // si no está lo que dice el usuario en hola
+                            if(l.equals(coordinate2)==p.equals(coordinate2)){
+                                p.moveTo(new Coordinate(coordinate2.charAt(0),coordinate2.charAt(1)-48));
+
+                            }
+
+                      //    p.check(new Coordinate(coordinate2.charAt(0),coordinate2.charAt(1)-48),p.getNextMovements());
+
+                       //     b2.highlight(p.getNextMovements());
+
 
 
                             //   p.moveTo(new Coordinate('A',3));

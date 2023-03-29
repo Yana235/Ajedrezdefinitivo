@@ -4,12 +4,31 @@ import model.pieces.*;
 
 import tad.ListCoor;
 
-public class Board {
+import java.util.*;
+import java.util.stream.Collectors;
 
-    private Cell[][] cells;
+public class Board {
+    private Map<Coordinate, Cell> cells;
+
+
+    public Board() {
+        cells = new HashMap<>();
+        initializeCells();
+    }
+
+    private void initializeCells() { Coordinate coordinate;
+        Cell cell; for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                coordinate = new Coordinate((char)
+                        ('A' + col), 1 + row);
+                cell = new Cell(this, coordinate);
+                cells.put(coordinate, cell); }
+        }
+    }
+    private Cell[][] cell;
 
     private InterfacePieceDelete deletedPiecedManager;
-    public Board(){
+  /*  public Board(){
         deletedPiecedManager= new DeletePieceManager();
         cells = new Cell[8][8];
         //to create every cell
@@ -18,7 +37,9 @@ public class Board {
                 cells[i][j] = new Cell(this, new Coordinate((char)('A'+j),i+1));
             }
         }
-    }
+
+
+   */
 
     public void startPieces(){
         Piece p;
@@ -129,10 +150,9 @@ public class Board {
  */
 
 
-
     }
 
-    public void highlight(ListCoor coordinates){
+   /* public void highlight(ListCoor coordinates){
 //        Coordinate c;
 //        while ((c = coordinates.remove(0)) != null)
 //            getCell(c).highlight();
@@ -142,20 +162,45 @@ public class Board {
         }
     }
 
+    */
+    public void highlight(Set<Coordinate> coordinates){
+        for(Coordinate c : coordinates)
+            cells.get(c).highlight(); }
+    List<Piece> n=new ArrayList<>();
+    private List<Piece> getPieces(){
+        return cells.values().stream() .filter(cell -> cell.containsPiece())
+                .map(cell -> cell.getPiece()) .collect(Collectors.toList()); }
+
+
+
+/*
     public void resetColors(){
         for(Cell[] row : cells)
             for(Cell c : row)
                 c.resetColor();
     }
 
+ */
+    public void resetColor(){
+        for(Coordinate c : cells.keySet())
+            cells.get(c).resetColor(); }
+/*
+    public Cell getCell(Coordinate c) {
+        return cells.get(c); }
 
-    public Cell getCell(Coordinate coordinate){
+ */
+
+   public Cell getCell(Coordinate coordinate){
         if(coordinate.getRow()<1 || coordinate.getRow()>8)
             return null;
         if(coordinate.getColumn()<'A' || coordinate.getColumn()>'H')
             return null;
-        return cells[coordinate.getRow()-1][coordinate.getColumn()-'A'];
+        return cell[coordinate.getRow()-1][coordinate.getColumn()-'A'];
     }
+    public Cell getCell(Coordinate c) {
+       return cells.get(c); }
+
+
 
     @Override
     public String toString() {
@@ -163,7 +208,7 @@ public class Board {
         for (int i = 0; i < 8; i++) {
             output += (i+1) + " ";
             for (int j = 0; j < 8; j++) {
-                output += cells[i][j];
+                output += cell[i][j];
             }
             output += " " + (i+1) + "\n";
         }
@@ -171,6 +216,7 @@ public class Board {
         output += "   A  B  C  D  E  F  G  H";
         return output;
     }
+    /*
 
     public void testPlacePawn(){
         Piece p;
@@ -181,6 +227,8 @@ public class Board {
         p = new PawnBlack(getCell(new Coordinate('B',2)));
         p.putInYourPlace();
     }
+
+     */
     /*
 
     public void testPlaceBishop(){

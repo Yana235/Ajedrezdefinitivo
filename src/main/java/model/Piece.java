@@ -84,8 +84,8 @@ public abstract class Piece {
         BLACK_KNIGHT("\u265E", Color.BLACK),
         WHITE_PAWN("\u2659", Color.WHITE),
         BLACK_PAWN("\u2659", Color.BLACK);
-        private String shape;
-        private Color color;
+        private final String shape;
+        private final Color color;
         private Type(String shape, Color color) {
             this.color = color;
             this.shape = shape;

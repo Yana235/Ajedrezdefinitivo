@@ -22,7 +22,7 @@ public abstract class Pawn extends Piece {
 
     protected void checkPawnKiller(Coordinate c) {
         Board board = getCell().getBoard();
-        if ((board.getCell(c) != null) && (board.getCell(c).getPiece().getColor() != getColor()))
+         if ((board.getCell(c) != null) && (board.getCell(c).getPiece().getColor() != getColor()))
             coordinates.add(c);
     }
 

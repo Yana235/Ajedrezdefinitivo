@@ -16,6 +16,7 @@ public class Cell {
         this.board = board;
         this.coordinate = coordinate;
         this.piece = null;
+
         this.original = ((coordinate.getRow() - 1 + coordinate.getColumn() - 'A') % 2 == 0)
                 ?
                 Color.WHITE_CELL
@@ -44,6 +45,10 @@ public class Cell {
         }
     }
 
+
+
+    public void removeHighlight() { this.color = original; }
+
     public Color getColor() {
         return color;
     }
@@ -63,6 +68,7 @@ public class Cell {
     public void setPiece(Piece piece) {
         this.piece = piece;
     }
+    public boolean containsPiece() { return piece != null; }
 
     public boolean isEmpty() {
         return piece == null;
