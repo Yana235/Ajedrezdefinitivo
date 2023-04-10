@@ -39,6 +39,25 @@ public abstract class Piece {
                     board.getCell(coordinate).getPiece().getColor() != getColor())
                 coordinates.add(coordinate);
     }
+    /*
+    public boolean moveTo(Coordinate c) {
+        if (cell == null ||
+                !getNextMovements().contains(c))
+            return false;
+// Si la celda destino tiene ficha la eliminamos de la lista de
+// fichas del tablero
+        if (c.containsPiece()) {
+            c.getPiece().removePiece();
+        }
+// movemos la ficha eliminandola de su antigua posicion
+// y colocandola en la nueva
+        cell.setPiece(null);
+        cell = c;
+        placePiece();
+        return true;
+    }
+
+     */
 
     public void moveTo(Coordinate c){
         Board board = getCell().getBoard();
@@ -50,6 +69,9 @@ public abstract class Piece {
             this.cell = cell;
         }
     }
+
+
+
 
     @Override
     public String toString(){

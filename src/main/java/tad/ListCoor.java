@@ -26,6 +26,7 @@ public class ListCoor {
         size++;
     }
 
+
     public int search(Coordinate elem){
         int result = -1;
         if(isEmpty())
